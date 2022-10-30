@@ -34,7 +34,7 @@ func main() {
 		fmt.Println("Done?(y/n)")
 		fmt.Scanln(&itemDone)
 		if itemDone == "y" {
-			perPay := make(map[string]float)
+			perPay := make(map[string]float32)
 			var totalExp int
 			for name, exp := range nameToExp {
 				fmt.Printf("%s spent %d\n", name, exp)
@@ -43,7 +43,7 @@ func main() {
 			fmt.Println("Total trip expenditure is: ", totalExp)
 			for name, exp := range nameToExp {
 				fmt.Printf("%s needs to pay %d\n", name, ((totalExp / numPeeps) - exp))
-				perPay[name] = (totalExp / numPeeps) - exp
+				perPay[name] = float32((totalExp / numPeeps) - exp)
 			}
 			break
 		}
